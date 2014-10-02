@@ -9,8 +9,8 @@ def main():
         words = line.split(',')
         
         melon = words[0]
-        count = words[0]
-        amount = words[0]
+        count = words[1]
+        amount = words[2]
         
         print "Delivered %s %ss for a total of: $%s" % (count, melon, amount)
     my_file.close()
@@ -25,8 +25,8 @@ def main():
         words = line.split(',')
         
         melon = words[0]
-        count = words[0]
-        amount = words[0]
+        count = words[1]
+        amount = words[2]
         
         print "Delivered %s %ss for a total of: $%s" % (count, melon, amount)
     my_file.close()
@@ -41,8 +41,8 @@ def main():
         words = line.split(',')
         
         melon = words[0]
-        count = words[0]
-        amount = words[0]
+        count = words[1]
+        amount = words[2]
         
         print "Delivered %s %ss for a total of: $%s" % (count, melon, amount)
     my_file.close()
