@@ -13,9 +13,19 @@ def main():
         line = line.rstrip()
         entries = line.split(",")
         salesperson = entries[0]
+        salespeople.append(salesperson)
         melons = int(entries[2])
+        melons_sold.append(melons)
 
-        if salesperson in salespeople:
+    names_melons = dict(zip(salespeople, melons_sold))
+
+    print names_melons
+
+
+
+
+
+"""        if salesperson in salespeople:
             position = salespeople.index(salesperson)
             melons_sold[position] += melons
         else:
@@ -24,7 +34,7 @@ def main():
 
 
     for i in range(len(salespeople)):
-        print "%s sold %d melons" % (salespeople[i], melons_sold[i])
+        print "%s sold %d melons" % (salespeople[i], melons_sold[i]) """
 
 
 

@@ -10,11 +10,11 @@ def payment_diferential(customer_orders):
         customer_melons = int(data[2])
         customer_paid = float(data[3])
 
+
         customer_expected = customer_melons * melon_cost
 
         if customer_expected != customer_paid:
-            print customer_name, "paid %.2f, expected %.2f" % (customer_paid, customer_expected) 
-
+            print "%s paid %.2f, expected %.2f" % (customer_name, customer_paid, customer_expected) 
 
 
 def main():
@@ -24,7 +24,6 @@ def main():
     payment_diferential(customer_orders)
 
     customer_orders.close()
-
 
 
 
