@@ -1,3 +1,5 @@
+import datetime
+
 """
 call.py - Telemarketing script that displays the next name 
           and phone number of a Customer to call.
@@ -8,6 +10,23 @@ call.py - Telemarketing script that displays the next name
           an order of over 20 Watermelons.
 
 """
+
+class Customer(object):
+
+	def __init__(self, customers):
+
+		self.customer_id = customers[customer['customer_id']]
+		first = customers[customer['first']]
+		self.last = customers[customer['last']]
+		self.email = customers[customer['email']]
+		self.telephone = customers[customer['telephone']]
+
+
+	def called(self, called_mark):
+
+		self.called = customers[customer['called']]
+
+
 
 # Load the customers from the passed filename
 # Return a dictionary containing the customer data
@@ -70,9 +89,24 @@ def display_customer(customer):
 	print "---------------------"
 	print "Next Customer to call"
 	print "---------------------\n"
-	print "Name: ", customer.get('first', ''), customer.get('last', '')
-	print "Phone: ", customer.get('telephone')
+	print type(Customer)
+	print Customer.first, Customer.last
+#	print "Name: ", customer.get('first', ''), customer.get('last', '')	print "Phone: ", customer.get('telephone')
 	print "\n"
+
+def mark_as_called(customer):
+	called_mark = raw_input("Have you successfully called this costumer? please enter Y or N")
+	if called_mark == 'Y' or called_mark == 'y':
+		customer['called'] = datetime.datetime.now().strftime("%y-%m-%d")
+
+
+def write_to_file(customers):
+	with open('customers2.csv', 'w') as f:
+		f.write('customer_id,first,last,email,telephone,called')
+		l = []
+		for k, v in customers.iteritems():
+			l.append( '%s, %s, %s') % customer(customer_id), customer(first), customer(last)
+		f.write(', '.join(l))
 
 def main():
 	# Load data from our csv files
@@ -87,7 +121,14 @@ def main():
 			customer = customers.get(order.get('customer_id', 0), 0)
 			if customer.get('called', '') == '':
 				display_customer(customer)
-				break
+				mark_as_called(customer)
+
+				close_or_continue = raw_input("Would you like to call another costumer? please enter Y or N")
+				if close_or_continue == 'N' or close_or_continue == 'n':
+					write_to_file(customers)
+					break
+				else:
+					continue
 
 if __name__ == '__main__':
 	main()
